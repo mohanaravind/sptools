@@ -1,0 +1,71 @@
+{
+  "name": "SP Tools",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "This extension was created with the awesome extensionizr.com",
+  "homepage_url": "http://TODO.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": false
+  },
+  "options_page": "src/options_custom/index.html",
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "browser action demo",
+    "default_popup": "src/browser_action/browser_action.html"
+  },
+  "permissions": [
+    "storage",
+    "clipboardWrite",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "notifications",
+    "https://glitch.com",
+    "http://redminesim:8080",
+    "http://vm105-56sim:8080"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://redminesim:8080/redmine/projects/process-app-development/wiki/Status*/edit*"
+      ],
+      "css": [
+        "src/inject/redmine/redmine.css"
+      ],
+      "js": [
+        "src/inject/weekly.js", "src/inject/redmine/redmine.js"
+      ]
+    },
+    {
+      "matches": [
+        "http://vm105-56sim:8080/secure/Dashboard.jspa"
+      ],
+      "css": [
+        "src/inject/jira/jira.css"
+      ],
+      "js": [
+        "src/inject/weekly.js", "src/inject/jira/jira.js"
+      ]
+    },
+    {
+      "matches": [
+        "http://satinsim.dsone.3ds.com/process-services-report.html"
+      ],
+      "css": [
+        "src/inject/rfl/rfl.css"
+      ],
+      "js": [
+        "src/inject/weekly.js", "src/inject/rfl/rfl.js"
+      ]
+    }
+  ]
+}

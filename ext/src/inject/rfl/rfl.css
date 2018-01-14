@@ -1,0 +1,11 @@
+/**
+ * Place your custom CSS styles here.
+ **/
+ .weekly-report-button {
+  position: absolute;
+	bottom: 8px;
+  right: 25px;
+  padding: 10px;
+	background: #628db6;
+	color: white;	
+}
